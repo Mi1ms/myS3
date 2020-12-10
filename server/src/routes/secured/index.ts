@@ -1,15 +1,15 @@
 import { Router } from 'express';
 import user from './user';
 import auth from  './auth';
+import passport from 'passport';
 
 const routes = Router();
-// users
-routes.use('users/:uuid', user);
 
-
+// router users
+routes.use('/users', user);
+// router Auth
 routes.use('/', auth);
-
-// bucket 
+// router bucket 
 // routes.use('users/:user_uuid/buckets', )
 
 // blobs

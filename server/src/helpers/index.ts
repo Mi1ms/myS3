@@ -1,18 +1,15 @@
-import * as crypto from 'crypto';
+import * as bcryptjs from 'bcryptjs';
 import * as nodemailer from 'nodemailer';
 
 const env = require('dotenv').config();
 
 
 async function hashPsw(password: string) {
-    console.log(crypto.createHmac('sha256', env.HASH_SECRET));
-    
-    // return crypto.createHmac('sha256', env.HASH_SECRET);
-    
+    return bcryptjs.hashSync(password, env.HASH_SECRET);
 }
 
-async function verify(password: string) {
-    
+async function verify(password: string, bdpsw: string) {
+    return bcryptjs.compareSync(password, bdpsw);
 }
 
 async function sendMail(userMail: string) {
@@ -37,9 +34,9 @@ async function sendMail(userMail: string) {
 
     transport.sendMail(msg, (err, info) => {
         if (err) {
-            console.log(err);
+            console.log('erreur => ', err);
         } else {
-            console.log(info);
+            // console.log('INFO', info);
         }
     })
 }
