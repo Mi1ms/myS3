@@ -1,14 +1,12 @@
 import { Router } from "express";
-import  * as jwt  from "jsonwebtoken";
-import {UserController} from "../../controllers/UserController";
+import UserController from "../../controllers/UserController";
 
-const router = Router();
+const routes = Router();
 
-// console.log(UserController.save);
 
-// router.post('/', UserController);
-// router.get('/', UserController);
-// router.put('/', UserController);
-// router.delete('/', UserController);
+routes.post('/', UserController.save);
+routes.get('/:uuid', UserController.findOne);
+routes.put('/:uuid', UserController.update);
+routes.delete('/:uuid', UserController.remove);
 
-export default router;
+export default routes;
