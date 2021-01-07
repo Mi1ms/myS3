@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linen;
+  /* background: linear-gradient(to bottom right, #9397df, #e2f1ef ); */
+}
+html {
+  /* background: #F8B195; */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navBar-header {
+  background: #6C5B7B;
+  padding: 5px;
+  box-shadow: 0px 4px 6px rgb(134, 134, 134);
+}
+
+.bg-primary {
+  background: #6C5B7B;
+}
+
+.centered-block, Empty {
+  margin: auto;
+}
+.space-margin {
+  padding: 30px;
+}
+
+.App {
+  text-align: center;
+}
+.App-header {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+
+.profil {
+  margin: auto;
+  width: 50%;
+}
+
+.icone {
+  border: #C06C84 5px outset;
+  border-radius: 80%;
+}
+
+
+
+.profil-title-nname {
+  text-align: center;
+  bottom: 40px;
+  position: relative;
+}
+
+.btnEditProfil {
+  position: relative !important;
+  bottom: 40px;
+  z-index: 2;
+  left: 75%;
+  /* width: 100px; */
+}
+
+
+/* Bucket component */
+.list-bucket Divider {
+  top: 5px;
+}
+.btn-create-bucket {
+  /* position: relative; */
+  left: 10px;
+  top: 20px;
+}
+.list-bucket {
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+.table-bucket {
+  width: 90%;
+
+}
