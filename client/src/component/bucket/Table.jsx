@@ -1,18 +1,25 @@
-import { Row, Col, Tooltip, Button, Space, Divider } from 'antd';
-import { FolderAddOutlined, FolderOpenOutlined } from '@ant-design/icons';
-import EmptyData from '../EmptyData';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Row, Col, Tooltip, Button, Space, Divider, List, Upload } from 'antd';
+import { FolderAddOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
-const dataList =  () => {
-    const buckets = [1, 2] ;
-     
-    // await
-    return buckets;
-}
+
 
 export default function Table() {
-    // const bucketData = await dataList();
-    const bucketData =  dataList();
-    console.log(bucketData);
+    const [bucketArr, setBucketArr] = useState([
+        {
+            id: 1,
+            bucketName : 'TItle',
+            blob: []
+        },
+        {
+            id: 2,
+            bucketName : 'TItle2',
+            blob: []
+        },
+    ]);   
+    // await
+
     return (
         <Row gutter={16}>
             <Col span={4}></Col>
@@ -22,6 +29,7 @@ export default function Table() {
                     <Button className='btn-create-bucket'
                         icon={ <FolderAddOutlined /> }
                         type='primary'
+                        size='large'
                     >
                     </Button>
                 </Tooltip>
@@ -31,24 +39,31 @@ export default function Table() {
                     </Divider>
 
                     <Space className='table-bucket'>
-                        {/* <EmptyData text='Aucun Bucket' /> */}
                         <div className='centered-block' >
 
-                            { bucketData.length === 0 ? 
-                                <EmptyData /> 
-                                :
-                                bucketData.map((elem, idx) => {
-                                    return ( 
-                                        <div key={idx} > 
-                                            <Button 
-                                            icon={<FolderOpenOutlined />}
-                                            href={`/bucket/${idx}`}
-                                            >
-                                            </Button>
-                                        </div>  
-                                    )
-                                })
-                            }
+                        <List
+                            dataSource={bucketArr}
+                            renderItem={(item) => (
+                                <List.Item
+                                 actions={[
+                                    <Button type="primary" icon={<DeleteOutlined />  } danger/>,
+                                    <Button icon={<EditOutlined />}></Button>]}
+                                >
+                                    <List.Item.Meta
+                                     title={
+                                     <Link to={{
+                                         pathname:`/bucket/${item.id}`,
+                                         state : { 
+                                            bucketName: item.bucketName, 
+                                            blob : item.blob
+                                         }
+                                     }}> { item.bucketName }
+                                     </Link>
+                                     }
+                                    />
+                                </List.Item>
+                            )} 
+                            />
                         </div>
                     </Space>
                 </div>

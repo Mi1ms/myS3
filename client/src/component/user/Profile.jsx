@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Image, Typography, Button, Tooltip, Form, Collapse , Input} from 'antd'
 import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
-// import EditProfil from './EditProfil';
 
 
 export default function  Profile () { 
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [form] = Form.useForm();
+    const [form] = Form.useForm({});
+    const [infoUser, setInfoUser] = useState({
+        id:  1,
+        nickname: 'Joe',
+        email: 'test@mail.com',
+    });
     const editInfo = (fields) => {
         console.log(fields);
     }
@@ -57,7 +61,7 @@ export default function  Profile () {
                 />
             </div>
             <Typography.Title className='profil-title-nname' level={3}>
-                NickName : 
+                { infoUser.nickname }
             </Typography.Title>
 
 

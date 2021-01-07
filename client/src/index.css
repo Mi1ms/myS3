@@ -49,6 +49,7 @@ code {
 }
 
 
+/* Profil part */
 .profil {
   margin: auto;
   width: 50%;
@@ -58,8 +59,6 @@ code {
   border: #C06C84 5px outset;
   border-radius: 80%;
 }
-
-
 
 .profil-title-nname {
   text-align: center;
@@ -93,4 +92,34 @@ code {
 .table-bucket {
   width: 90%;
 
+}
+
+/* About component */
+.about {
+  width: 100%;
+
+  text-align: center;
+}
+
+.about-p {
+  position: absolute;
+  bottom: 0px;
+  color: #6C5B7B;
+  padding: 0 20%;
+}
+.arun {
+  width: 45%;
+  position: absolute;
+  left: 0;
+}
+.mims {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 45%;
+}
+
+/* 404 Component */
+.lost {
+  margin: 25px 0;
 }
