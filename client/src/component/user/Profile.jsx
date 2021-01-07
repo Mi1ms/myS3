@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Typography, Button, Tooltip, Form, Collapse , Input} from 'antd'
+import { Image, Typography, Button, Tooltip, Form, Collapse , Input, Popconfirm} from 'antd'
 import { EditOutlined, UserDeleteOutlined } from '@ant-design/icons';
 
 
@@ -47,9 +47,15 @@ export default function  Profile () {
         )
     }
 
+    const displayEdit = () => {
+        console.log('display');
+        setIsModalVisible(!isModalVisible);
+    }
+
     // function call API
     const deleteAccount = ()  => {
         // Fetch API delete user
+        console.log('delete');
     }
 
     return ( 
@@ -70,27 +76,36 @@ export default function  Profile () {
                     <Tooltip title="Edit"
                         // className='btnEditProfil'
                     >
-                        <Button type="dashed" 
-                        // ghost={true} 
+                        <Button type="primary"
                         shape="circle" 
                         icon={<EditOutlined />}  
-                        onClick={() => setIsModalVisible(!isModalVisible) }
+                        onClick={() => {setIsModalVisible(!isModalVisible) }}
                             />
                     </Tooltip>
 
-                    <Tooltip title="Supprimer le compte">
-                        <Button 
-                        icon={ <UserDeleteOutlined /> }
-                        type='primary'
-                        danger
-                        onClick={() => deleteAccount}
-                        ></Button>
-                    </Tooltip>
+                    <Popconfirm
+                        title="C'est votre ultime bafouille ?"
+                        onConfirm={deleteAccount}
+                        okText="Oui"
+                        cancelText="Non"
+                    >
+
+                        <Tooltip title="Supprimer le compte">
+                            <Button 
+                            icon={ <UserDeleteOutlined /> }
+                            type='primary'
+                            danger
+                            ></Button>
+                        </Tooltip>
+                    </Popconfirm>
 
                     { isModalVisible ? 
                         <EditProfil />
                         : 
-                        <p>INFO</p>
+                        <div>
+                            <Typography.Title level={4}>Email : <span>{infoUser.email}</span></Typography.Title>
+                            <Typography.Title level={4}>Nickname : <span> {infoUser.nickname} </span></Typography.Title>
+                        </div>
                     }
                 </Collapse.Panel>
             </Collapse>

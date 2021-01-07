@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, Button, Drawer } from 'antd';
 import { MenuFoldOutlined , MenuUnfoldOutlined } from '@ant-design/icons';
 
+
 const { SubMenu } = Menu;
 
 export default function SideBar() {
@@ -39,19 +40,19 @@ export default function SideBar() {
                 <Link to="/">Home</Link>
                 </Menu.Item>
                 <SubMenu title="Log">
-                <Menu.Item>            
-                    <Link to="/login" >Connexion</Link>
-                </Menu.Item>
-                <Menu.Item>
-                    <Link to="/signup"> Inscription</Link>
-                </Menu.Item>
+                    <Menu.Item>            
+                        <Link to="/login" >Connexion</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Link to="/signup"> Inscription</Link>
+                    </Menu.Item>
+                </SubMenu>
                 <Menu.Item>
                     <Link to="/profil" > Mes Infos personnelles </Link>
                 </Menu.Item>
                 <Menu.Item>
                     <Link to="/mybucket" > Mes dossiers </Link>
                 </Menu.Item>
-                </SubMenu>
                 <Menu.Item>
                     <Link to='/about'> À propos</Link>
                 </Menu.Item>
